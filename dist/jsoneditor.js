@@ -585,11 +585,13 @@ JSONEditor.prototype = {
       self.refs[url] = 'loading';
       waiting++;
       
+      var url1 = url;
+      
       if(self.options.ref_root_url)
-        url = self.options.ref_root_url + url;
+        url1 = self.options.ref_root_url + url;
         
       var r = new XMLHttpRequest(); 
-      r.open("GET", url, true);
+      r.open("GET", url1, true);
       r.onreadystatechange = function () {
         if (r.readyState != 4) return; 
         // Request succeeded
